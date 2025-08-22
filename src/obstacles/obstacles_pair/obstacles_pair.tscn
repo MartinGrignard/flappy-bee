@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5kogisawre13"]
+
+[ext_resource type="PackedScene" uid="uid://b05xhgcss48oq" path="res://obstacles/obstacle/obstacle.tscn" id="1_0nxpk"]
+[ext_resource type="Script" uid="uid://dacrpr42usl7c" path="res://obstacles/obstacles_pair/obstacles_pair.gd" id="1_rq68e"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rq68e"]
+a = Vector2(0, 64)
+b = Vector2(0, -64)
+
+[node name="ObstaclesPair" type="Node2D"]
+script = ExtResource("1_rq68e")
+height = 0.5
+hole_size = 128
+
+[node name="Top" parent="." instance=ExtResource("1_0nxpk")]
+rotation = 3.14159
+height = 320
+
+[node name="Bottom" parent="." instance=ExtResource("1_0nxpk")]
+position = Vector2(0, 768)
+height = 320
+
+[node name="Hole" type="Area2D" parent="."]
+position = Vector2(0, 384)
+
+[node name="Collider" type="CollisionShape2D" parent="Hole"]
+shape = SubResource("SegmentShape2D_rq68e")
