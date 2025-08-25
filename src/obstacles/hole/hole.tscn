@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw8lquxithp0l"]
+
+[ext_resource type="Script" uid="uid://c3igmk0st16lj" path="res://obstacles/hole/hole.gd" id="1_a75kh"]
+[ext_resource type="AudioStream" uid="uid://d2c0wecofbvcy" path="res://obstacles/hole/score.ogg" id="2_ce5he"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rq68e"]
+a = Vector2(0, -64)
+b = Vector2(0, 64)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bl8us"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("2_ce5he")
+
+[node name="Hole" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_a75kh")
+size = 256
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_rq68e")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_bl8us")

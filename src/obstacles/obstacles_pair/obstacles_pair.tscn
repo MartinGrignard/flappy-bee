@@ -1,27 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5kogisawre13"]
+[gd_scene load_steps=4 format=3 uid="uid://ch7egavrm7rd5"]
 
-[ext_resource type="PackedScene" uid="uid://b05xhgcss48oq" path="res://obstacles/obstacle/obstacle.tscn" id="1_0nxpk"]
-[ext_resource type="Script" uid="uid://dacrpr42usl7c" path="res://obstacles/obstacles_pair/obstacles_pair.gd" id="1_rq68e"]
+[ext_resource type="PackedScene" uid="uid://b2uw6ktoorng5" path="res://obstacles/obstacle/obstacle.tscn" id="1_0nxpk"]
+[ext_resource type="Script" uid="uid://cl00tw67clndh" path="res://obstacles/obstacles_pair/obstacles_pair.gd" id="1_rq68e"]
+[ext_resource type="PackedScene" uid="uid://dw8lquxithp0l" path="res://obstacles/hole/hole.tscn" id="3_reeb5"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_rq68e"]
-a = Vector2(0, 64)
-b = Vector2(0, -64)
-
-[node name="ObstaclesPair" type="Node2D"]
+[node name="ObstaclesPair" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 8
+sync_to_physics = false
 script = ExtResource("1_rq68e")
-height = 0.5
-hole_size = 128
+hole_size = 256
+hole_position = 0.5
+speed = 32.0
 
 [node name="Top" parent="." instance=ExtResource("1_0nxpk")]
-rotation = 3.14159
-height = 320
+position = Vector2(0, -256)
+
+[node name="Hole" parent="." instance=ExtResource("3_reeb5")]
+position = Vector2(0, 384)
+size = 256
 
 [node name="Bottom" parent="." instance=ExtResource("1_0nxpk")]
-position = Vector2(0, 768)
-height = 320
-
-[node name="Hole" type="Area2D" parent="."]
-position = Vector2(0, 384)
-
-[node name="Collider" type="CollisionShape2D" parent="Hole"]
-shape = SubResource("SegmentShape2D_rq68e")
+position = Vector2(0, 1024)

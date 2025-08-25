@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qgdancgsjrxt"
-path="res://.godot/imported/obstacle.svg-309138b2fadb4c7446479676cd08881f.ctex"
+uid="uid://unxy0ftxofog"
+path="res://.godot/imported/player_a.svg-6b6799cca193a3b49587d0cd9566086f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obstacles/obstacle/obstacle.svg"
-dest_files=["res://.godot/imported/obstacle.svg-309138b2fadb4c7446479676cd08881f.ctex"]
+source_file="res://player/player_a.svg"
+dest_files=["res://.godot/imported/player_a.svg-6b6799cca193a3b49587d0cd9566086f.ctex"]
 
 [params]
 

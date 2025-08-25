@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://0llwqj1kftcb"]
+
+[ext_resource type="Script" uid="uid://mp2i34gf6kok" path="res://obstacles/obstacles.gd" id="1_eq3x1"]
+
+[node name="Obstacles" type="Node2D"]
+script = ExtResource("1_eq3x1")
+speed = 32.0
+spacing = 256.0
+hole_size = 256
+
+[node name="SpawnCooldown" type="Timer" parent="."]

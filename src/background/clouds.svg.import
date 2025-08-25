@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qgdancgsjrxt"
-path="res://.godot/imported/obstacle.svg-309138b2fadb4c7446479676cd08881f.ctex"
+uid="uid://mkb6aaalt0n8"
+path="res://.godot/imported/clouds.svg-b53b3b7c5ebae9089da78856e536f00f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://obstacles/obstacle/obstacle.svg"
-dest_files=["res://.godot/imported/obstacle.svg-309138b2fadb4c7446479676cd08881f.ctex"]
+source_file="res://background/clouds.svg"
+dest_files=["res://.godot/imported/clouds.svg-b53b3b7c5ebae9089da78856e536f00f.ctex"]
 
 [params]
 
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=2.0
+svg/scale=3.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

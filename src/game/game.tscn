@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv46stgxamaus"]
+
+[ext_resource type="Script" uid="uid://br0u4rb1krafg" path="res://game/game.gd" id="1_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://bj68qiydxg7m2" path="res://player/player.tscn" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://bndsgfb3kx2ot" path="res://background/background.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://0llwqj1kftcb" path="res://obstacles/obstacles.tscn" id="3_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://dgu54jlcyqlyp" path="res://score/score.tscn" id="5_dxrkv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l1rk1"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vasa2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h7iqs"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4fuuu"]
+normal = Vector2(-1, 0)
+
+[node name="Game" type="CanvasLayer"]
+
+[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("score")]
+script = ExtResource("1_4fuuu")
+score = NodePath("../Interface/Score")
+
+[node name="Background" parent="Game" instance=ExtResource("2_vasa2")]
+
+[node name="Player" parent="Game" instance=ExtResource("1_l1rk1")]
+position = Vector2(512, 384)
+gravity_acceleration = 120.0
+jump_velocity = 100.0
+jump_cooldown = 0.2
+
+[node name="Obstacles" parent="Game" instance=ExtResource("3_h7iqs")]
+position = Vector2(1152, 0)
+speed = 128.0
+hole_size = 128
+
+[node name="Borders" type="Node2D" parent="Game"]
+
+[node name="Top" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(512, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Top"]
+shape = SubResource("WorldBoundaryShape2D_l1rk1")
+
+[node name="Bottom" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(512, 768)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Bottom"]
+shape = SubResource("WorldBoundaryShape2D_vasa2")
+
+[node name="Left" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(-256, 384)
+collision_layer = 12
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Left"]
+shape = SubResource("WorldBoundaryShape2D_h7iqs")
+
+[node name="Right" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(1280, 384)
+collision_layer = 12
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Right"]
+shape = SubResource("WorldBoundaryShape2D_4fuuu")
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score" parent="Interface" instance=ExtResource("5_dxrkv")]
+layout_mode = 1
+offset_top = 64.0
+offset_right = 0.0
+offset_bottom = 96.0
+text = "0"
