@@ -32,4 +32,5 @@ func increment() -> void:
 		EventBus.levelled_up.emit()
 
 func reset() -> void:
+	EventBus.died_with_score.emit(_score)
 	score = 0

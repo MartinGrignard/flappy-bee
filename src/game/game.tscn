@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv46stgxamaus"]
+[gd_scene load_steps=13 format=3 uid="uid://dv46stgxamaus"]
 
 [ext_resource type="PackedScene" uid="uid://bj68qiydxg7m2" path="res://player/player.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://bndsgfb3kx2ot" path="res://background/background.tscn" id="2_vasa2"]
 [ext_resource type="PackedScene" uid="uid://0llwqj1kftcb" path="res://obstacles/obstacles.tscn" id="3_h7iqs"]
 [ext_resource type="Script" uid="uid://c3chijwum2tkc" path="res://clickable_label/clickable_label.gd" id="5_dakft"]
 [ext_resource type="PackedScene" uid="uid://dgu54jlcyqlyp" path="res://score/score.tscn" id="5_dxrkv"]
+[ext_resource type="FontFile" uid="uid://dpxc18vlsm5ri" path="res://score/font.png" id="5_u5opy"]
 [ext_resource type="Texture2D" uid="uid://5e1l7cd3v2p4" path="res://controls/controls.svg" id="6_dakft"]
+[ext_resource type="Script" uid="uid://bsoaf5axl8e8h" path="res://high_score/high_score.gd" id="6_y36n6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l1rk1"]
 normal = Vector2(0, 1)
@@ -34,7 +36,6 @@ jump_cooldown = 0.2
 position = Vector2(1152, 0)
 speed = 128.0
 hole_size = 128
-spread = 0.5
 
 [node name="Borders" type="Node2D" parent="Game"]
 
@@ -84,6 +85,22 @@ offset_top = 64.0
 offset_right = 0.0
 offset_bottom = 96.0
 level_up_score = 1
+
+[node name="HighScore" type="Label" parent="Interface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 48.0
+offset_right = 59.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_u5opy")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("6_y36n6")
 
 [node name="Author" type="RichTextLabel" parent="Interface"]
 layout_mode = 1
