@@ -26,8 +26,8 @@ normal = Vector2(-1, 0)
 
 [node name="Player" parent="Game" instance=ExtResource("1_l1rk1")]
 position = Vector2(512, 384)
-gravity_acceleration = 120.0
-jump_velocity = 100.0
+gravity_acceleration = 400.0
+jump_velocity = 400.0
 jump_cooldown = 0.2
 
 [node name="Obstacles" parent="Game" instance=ExtResource("3_h7iqs")]
