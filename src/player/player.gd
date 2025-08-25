@@ -17,14 +17,6 @@ signal died()
 
 var _is_blinking: bool = false
 
-func _ready() -> void:
-	var game = get_parent()
-	if not game:
-		return
-	game = game as Game
-	connect("scored", game.on_player_scored)
-	connect("died", game.on_player_died)
-
 func _physics_process(delta: float) -> void:
 	var collision_info := _move(delta)
 	if collision_info:
@@ -45,11 +37,8 @@ func _move(delta: float) -> KinematicCollision2D:
 	move_and_slide()
 	return get_last_slide_collision()
 
-func score() -> void:
-	scored.emit()
-
 func die() -> void:
-	died.emit()
+	EventBus.died.emit()
 	_die_audio_player.play()
 	position = Vector2(512, 384)
 	_is_blinking = true

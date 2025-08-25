@@ -42,14 +42,13 @@ func spawn() -> void:
 	var parent = get_parent()
 	if not parent:
 		return
-	var game = parent as Game
 	var obstacle := Obstacle.instantiate()
 	obstacle.speed = _speed
 	obstacle.hole_size = _hole_size
 	var min_position: float = max(_last_position - _spread / 2, 0.0)
 	var max_position: float = min(_last_position + _spread /  2, 1.0)
 	obstacle.hole_position = min_position + (max_position - min_position) * _rng.randf()
-	game.connect("cleared", obstacle.queue_free)
+	EventBus.died.connect(obstacle.queue_free)
 	add_child(obstacle)
 	if Engine.is_editor_hint():
 		return

@@ -3,6 +3,21 @@
 [ext_resource type="FontFile" uid="uid://dpxc18vlsm5ri" path="res://score/font.png" id="1_q4twa"]
 [ext_resource type="Script" uid="uid://cntc77vjb6klm" path="res://score/score.gd" id="2_eadki"]
 
+[sub_resource type="Animation" id="Animation_3wfgt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [32]
+}
+
 [sub_resource type="Animation" id="Animation_eadki"]
 resource_name = "score"
 length = 0.5
@@ -17,21 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [32, 48, 32]
-}
-
-[sub_resource type="Animation" id="Animation_3wfgt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_font_sizes/font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [32]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3wfgt"]
@@ -50,7 +50,7 @@ grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_q4twa")
 theme_override_font_sizes/font_size = 32
-text = "999"
+text = "0"
 horizontal_alignment = 1
 script = ExtResource("2_eadki")
 

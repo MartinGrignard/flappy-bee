@@ -14,6 +14,10 @@ config/name="Flappy Bird"
 run/main_scene="uid://dv46stgxamaus"
 config/features=PackedStringArray("4.4", "Mobile")
 
+[autoload]
+
+EventBus="*res://event_bus/event_bus.tscn"
+
 [display]
 
 window/size/viewport_width=1024

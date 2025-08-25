@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv46stgxamaus"]
+[gd_scene load_steps=9 format=3 uid="uid://dv46stgxamaus"]
 
-[ext_resource type="Script" uid="uid://br0u4rb1krafg" path="res://game/game.gd" id="1_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://bj68qiydxg7m2" path="res://player/player.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://bndsgfb3kx2ot" path="res://background/background.tscn" id="2_vasa2"]
 [ext_resource type="PackedScene" uid="uid://0llwqj1kftcb" path="res://obstacles/obstacles.tscn" id="3_h7iqs"]
@@ -19,9 +18,7 @@ normal = Vector2(-1, 0)
 
 [node name="Game" type="CanvasLayer"]
 
-[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("score")]
-script = ExtResource("1_4fuuu")
-score = NodePath("../Interface/Score")
+[node name="Game" type="Node2D" parent="."]
 
 [node name="Background" parent="Game" instance=ExtResource("2_vasa2")]
 
@@ -83,4 +80,3 @@ layout_mode = 1
 offset_top = 64.0
 offset_right = 0.0
 offset_bottom = 96.0
-text = "0"

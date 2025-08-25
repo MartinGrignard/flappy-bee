@@ -15,6 +15,8 @@ var _score: int = 0
 
 func _ready() -> void:
 	reset()
+	EventBus.scored.connect(increment)
+	EventBus.died.connect(reset)
 
 func increment() -> void:
 	_animation_player.play("score")

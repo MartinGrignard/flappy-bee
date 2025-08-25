@@ -18,7 +18,6 @@ position = Vector2(0, -256)
 
 [node name="Hole" parent="." instance=ExtResource("3_reeb5")]
 position = Vector2(0, 384)
-size = 256
 
 [node name="Bottom" parent="." instance=ExtResource("1_0nxpk")]
 position = Vector2(0, 1024)

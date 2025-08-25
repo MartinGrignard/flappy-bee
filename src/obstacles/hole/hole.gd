@@ -23,5 +23,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if not body is Player:
 		return
 	_audio_player.play()
-	var player = body as Player
-	player.score()
+	EventBus.scored.emit()
