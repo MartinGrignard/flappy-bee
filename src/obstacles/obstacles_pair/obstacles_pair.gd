@@ -1,6 +1,8 @@
 @tool
 extends AnimatableBody2D
 
+signal removed()
+
 @export_range(64, 512) var hole_size: int:
 	get:
 		return _hole_size
@@ -30,6 +32,7 @@ var _hole_position: float = 0.5
 var _speed: float = 32
 
 func _ready() -> void:
+	EventBus.died.connect(_remove)
 	_refresh()
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		return
 	var collision_info := move_and_collide(Vector2.LEFT * _speed * delta)
 	if collision_info:
-		_on_out_of_bound()
+		_remove()
 
 func _refresh() -> void:
 	if not _hole or not _top or not _bottom:
@@ -49,5 +52,6 @@ func _refresh() -> void:
 	_top.position.y = hole_position - (_hole_size + _top.shape.height) / 2
 	_bottom.position.y = hole_position + (_hole_size + _bottom.shape.height) / 2
 
-func _on_out_of_bound() -> void:
+func _remove() -> void:
+	removed.emit()
 	queue_free()

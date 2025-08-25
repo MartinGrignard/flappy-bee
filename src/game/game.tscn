@@ -34,6 +34,7 @@ jump_cooldown = 0.2
 position = Vector2(1152, 0)
 speed = 128.0
 hole_size = 128
+spread = 0.5
 
 [node name="Borders" type="Node2D" parent="Game"]
 
@@ -82,6 +83,7 @@ layout_mode = 1
 offset_top = 64.0
 offset_right = 0.0
 offset_bottom = 96.0
+level_up_score = 1
 
 [node name="Author" type="RichTextLabel" parent="Interface"]
 layout_mode = 1
