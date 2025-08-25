@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv46stgxamaus"]
+[gd_scene load_steps=10 format=3 uid="uid://dv46stgxamaus"]
 
 [ext_resource type="PackedScene" uid="uid://bj68qiydxg7m2" path="res://player/player.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://bndsgfb3kx2ot" path="res://background/background.tscn" id="2_vasa2"]
 [ext_resource type="PackedScene" uid="uid://0llwqj1kftcb" path="res://obstacles/obstacles.tscn" id="3_h7iqs"]
+[ext_resource type="Script" uid="uid://c3chijwum2tkc" path="res://clickable_label/clickable_label.gd" id="5_dakft"]
 [ext_resource type="PackedScene" uid="uid://dgu54jlcyqlyp" path="res://score/score.tscn" id="5_dxrkv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l1rk1"]
@@ -80,3 +81,40 @@ layout_mode = 1
 offset_top = 64.0
 offset_right = 0.0
 offset_bottom = 96.0
+
+[node name="Author" type="RichTextLabel" parent="Interface"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -28.0
+offset_right = 268.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.278431, 0.278431, 0.345098, 1)
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Built with [color=#FABA2D]❤️[/color] by [url=https://github.com/MartinGrignard]Martin Grignard[/url] for the [url=https://20_games_challenge.gitlab.io/games/flappy]20 Games Challenge[/url]."
+fit_content = true
+script = ExtResource("5_dakft")
+
+[node name="Credits" type="RichTextLabel" parent="Interface"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -28.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.278431, 0.278431, 0.345098, 1)
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[right]Assets by [url=https://kenney.nl/]Kenney.nl[/url]."
+fit_content = true
+script = ExtResource("5_dakft")
