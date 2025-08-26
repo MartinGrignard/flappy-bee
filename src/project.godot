@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Flappy Bird"
+config/name="Flappy Bee"
+config/description="A Flappy Bird clone built as my first entry to the 20 Games Challenge."
 run/main_scene="uid://dv46stgxamaus"
 config/features=PackedStringArray("4.4", "Mobile")
 

@@ -75,7 +75,7 @@ collision_mask = 6
 script = ExtResource("1_rkbax")
 
 [node name="Trail" type="CPUParticles2D" parent="."]
-position = Vector2(-24, -12)
+position = Vector2(-33, 1)
 amount = 40
 texture = ExtResource("2_yw30f")
 lifetime = 2.5
@@ -87,14 +87,13 @@ scale_amount_curve = SubResource("Curve_yw30f")
 color = Color(1, 1, 1, 0.25098)
 
 [node name="Visual" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -20)
+position = Vector2(-6, -7)
 scale = Vector2(-0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qjkh3")
 animation = &"jump"
 frame = 1
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(6, -13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qjkh3")
 

@@ -10,6 +10,7 @@ signal died()
 @export var jump_cooldown: float
 
 @onready var _visual: AnimatedSprite2D = get_node("Visual")
+@onready var _collider: CollisionShape2D = get_node("Collider")
 @onready var _jump_audio_player: AudioStreamPlayer2D = get_node("JumpAudioPlayer")
 @onready var _jump_cooldown_timer: Timer = get_node("JumpCooldown")
 @onready var _die_audio_player: AudioStreamPlayer2D = get_node("DieAudioPlayer")
@@ -24,6 +25,12 @@ func _physics_process(delta: float) -> void:
 	var collision_info := _move(delta)
 	if collision_info:
 		die()
+
+func _process(delta: float) -> void:
+	var speed: float = min(velocity.y, 256) / 256
+	var angle: float = speed * PI / 5
+	_visual.rotation = angle
+	_collider.rotation = angle
 
 func _move(delta: float) -> KinematicCollision2D:
 	if _is_blinking:
