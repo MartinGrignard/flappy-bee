@@ -86,8 +86,14 @@ offset_bottom = 96.0
 level_up_score = 4
 
 [node name="HighScore" parent="Interface" instance=ExtResource("5_u5opy")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 10
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 0.0
+offset_right = 0.0
+text = "9"
+score = 9
 
 [node name="Author" type="RichTextLabel" parent="Interface"]
 layout_mode = 1
