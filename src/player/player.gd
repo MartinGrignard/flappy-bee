@@ -27,10 +27,11 @@ func _physics_process(delta: float) -> void:
 		die()
 
 func _process(delta: float) -> void:
-	var speed: float = min(velocity.y, 256) / 256
-	var angle: float = speed * PI / 5
-	_visual.rotation = angle
-	_collider.rotation = angle
+	var speed: float = min(velocity.y, 512) / 512
+	print(speed)
+	var angle: float = speed * 60
+	_visual.rotation_degrees = angle
+	_collider.rotation_degrees = 90 + angle
 
 func _move(delta: float) -> KinematicCollision2D:
 	if _is_blinking:

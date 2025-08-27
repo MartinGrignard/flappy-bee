@@ -87,11 +87,12 @@ scale_amount_curve = SubResource("Curve_yw30f")
 color = Color(1, 1, 1, 0.25098)
 
 [node name="Visual" type="AnimatedSprite2D" parent="."]
-position = Vector2(-6, -7)
-scale = Vector2(-0.5, 0.5)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_qjkh3")
 animation = &"jump"
 frame = 1
+offset = Vector2(-12, -14)
+flip_h = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = 1.5708
