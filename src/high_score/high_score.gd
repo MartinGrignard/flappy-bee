@@ -13,6 +13,8 @@ const SAVE_PATH: String = "user://save.bin"
 var _score: int = 0
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 	_load()
 	EventBus.died_with_score.connect(_update)
 

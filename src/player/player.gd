@@ -17,6 +17,7 @@ signal died()
 @onready var _animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 var _is_blinking: bool = false
+var _has_started: bool = false
 
 func _ready() -> void:
 	die()
@@ -28,7 +29,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	var speed: float = min(velocity.y, 512) / 512
-	print(speed)
 	var angle: float = speed * 60
 	_visual.rotation_degrees = angle
 	_collider.rotation_degrees = 90 + angle
@@ -50,8 +50,10 @@ func _move(delta: float) -> KinematicCollision2D:
 
 func die() -> void:
 	EventBus.died.emit()
-	_die_audio_player.play()
-	position = Vector2(512, 384)
+	if _has_started:
+		_die_audio_player.play()
+		_has_started = true
+	position = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width") / 2, ProjectSettings.get_setting("display/window/size/viewport_height") / 2)
 	_is_blinking = true
 	_animation_player.play("blink")
 	await _animation_player.animation_finished
