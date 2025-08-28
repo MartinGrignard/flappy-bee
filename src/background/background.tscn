@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bndsgfb3kx2ot"]
+
+[ext_resource type="Texture2D" uid="uid://mkb6aaalt0n8" path="res://background/clouds.svg" id="1_p8qmt"]
+
+[node name="Background" type="Parallax2D"]
+repeat_size = Vector2(768, 0)
+autoscroll = Vector2(-25, 0)
+repeat_times = 4
+ignore_camera_scroll = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("1_p8qmt")
+region_rect = Rect2(0, 0, 1024, 768)

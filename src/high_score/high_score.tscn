@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bux1r0ssoxx06"]
+
+[ext_resource type="FontFile" uid="uid://dpxc18vlsm5ri" path="res://score/font.png" id="1_fxs6n"]
+[ext_resource type="Script" uid="uid://bsoaf5axl8e8h" path="res://high_score/high_score.gd" id="2_5j3q1"]
+
+[node name="HighScore" type="Label"]
+offset_right = 117.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("1_fxs6n")
+theme_override_font_sizes/font_size = 16
+text = "17"
+horizontal_alignment = 1
+script = ExtResource("2_5j3q1")
+score = 17

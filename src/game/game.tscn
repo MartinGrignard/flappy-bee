@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv46stgxamaus"]
+
+[ext_resource type="PackedScene" uid="uid://bj68qiydxg7m2" path="res://player/player.tscn" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://bndsgfb3kx2ot" path="res://background/background.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://0llwqj1kftcb" path="res://obstacles/obstacles.tscn" id="3_h7iqs"]
+[ext_resource type="Script" uid="uid://c3chijwum2tkc" path="res://clickable_label/clickable_label.gd" id="5_dakft"]
+[ext_resource type="PackedScene" uid="uid://dgu54jlcyqlyp" path="res://score/score.tscn" id="5_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://bux1r0ssoxx06" path="res://high_score/high_score.tscn" id="5_u5opy"]
+[ext_resource type="Texture2D" uid="uid://5e1l7cd3v2p4" path="res://controls/controls.svg" id="6_dakft"]
+[ext_resource type="Texture2D" uid="uid://capoccmnw5qk8" path="res://logo.svg" id="8_y36n6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l1rk1"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vasa2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h7iqs"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4fuuu"]
+normal = Vector2(-1, 0)
+
+[node name="Game" type="CanvasLayer"]
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="Background" parent="Game" instance=ExtResource("2_vasa2")]
+
+[node name="Player" parent="Game" instance=ExtResource("1_l1rk1")]
+position = Vector2(512, 384)
+gravity_acceleration = 400.0
+jump_velocity = 400.0
+jump_cooldown = 0.2
+
+[node name="Obstacles" parent="Game" instance=ExtResource("3_h7iqs")]
+position = Vector2(1152, 0)
+speed = 128.0
+hole_size = 128
+
+[node name="Borders" type="Node2D" parent="Game"]
+
+[node name="Top" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(512, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Top"]
+shape = SubResource("WorldBoundaryShape2D_l1rk1")
+
+[node name="Bottom" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(512, 768)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Bottom"]
+shape = SubResource("WorldBoundaryShape2D_vasa2")
+
+[node name="Left" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(-256, 384)
+collision_layer = 12
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Left"]
+shape = SubResource("WorldBoundaryShape2D_h7iqs")
+
+[node name="Right" type="StaticBody2D" parent="Game/Borders"]
+position = Vector2(1280, 384)
+collision_layer = 12
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="Game/Borders/Right"]
+shape = SubResource("WorldBoundaryShape2D_4fuuu")
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Interface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 66.0
+grow_horizontal = 0
+texture = ExtResource("8_y36n6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Score" parent="Interface" instance=ExtResource("5_dxrkv")]
+layout_mode = 1
+offset_top = 64.0
+offset_right = 0.0
+offset_bottom = 96.0
+level_up_score = 4
+
+[node name="HighScore" parent="Interface" instance=ExtResource("5_u5opy")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 48.0
+offset_right = 0.0
+offset_bottom = 71.0
+grow_horizontal = 2
+text = "0"
+score = 0
+
+[node name="Controls" type="TextureRect" parent="Interface"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -42.0
+offset_right = 512.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_dakft")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Author" type="RichTextLabel" parent="Interface"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -28.0
+offset_right = 268.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.572549, 0.631373, 0.678431, 1)
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Built with [color=#FABA2D]❤️[/color] by [url=https://github.com/MartinGrignard]Martin Grignard[/url] for the [url=https://20_games_challenge.gitlab.io/games/flappy]20 Games Challenge[/url]."
+fit_content = true
+script = ExtResource("5_dakft")
+
+[node name="Credits" type="RichTextLabel" parent="Interface"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -28.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.572549, 0.631373, 0.678431, 1)
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[right]Assets by [url=https://kenney.nl/]Kenney.nl[/url]."
+fit_content = true
+script = ExtResource("5_dakft")
